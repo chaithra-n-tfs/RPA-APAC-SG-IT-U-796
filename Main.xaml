@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1153.33333333333,835.333333333333" sap2010:WorkflowViewState.IdRef="Main2_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1153.33333333333,837.333333333333" sap2010:WorkflowViewState.IdRef="Main2_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="64">
       <x:String>System.Activities</x:String>
@@ -70,10 +70,9 @@
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="--Transactional REFramework with Queue&#xA;-- Used when you have to load and process transactions in a single framework using Queue.&#xA;--Version : 2022.2.1" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="1124,770.666666666667" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="--Transactional REFramework with Queue&#xA;-- Used when you have to load and process transactions in a single framework using Queue.&#xA;--Version : 2022.2.1" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="1124,772.666666666667" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -214,9 +213,9 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.To>
-            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="A transaction either succeeds or fails with a Business Rule Exception or a System Error. For System Error, it can be retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="231.333333333333,146" sap2010:WorkflowViewState.IdRef="State_3">
+            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="A transaction either succeeds or fails with a Business Rule Exception or a System Error. For System Error, it can be retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="503.333333333333,1882.66666666667" sap2010:WorkflowViewState.IdRef="State_3">
               <State.Entry>
-                <TryCatch DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="456,1384" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                <TryCatch DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="456.666666666667,1409.33333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -224,13 +223,13 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <TryCatch.Try>
-                    <Sequence DisplayName="Process the current TransactionItem" sap:VirtualizedContainerService.HintSize="418,1135" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                    <Sequence DisplayName="Process the current TransactionItem" sap:VirtualizedContainerService.HintSize="418,1149.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="Log Transaction Started" sap:VirtualizedContainerService.HintSize="376,691" sap2010:WorkflowViewState.IdRef="Sequence_52">
+                      <Sequence DisplayName="Log Transaction Starte" sap:VirtualizedContainerService.HintSize="376,705.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_52">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="salesordernum" />
                         </Sequence.Variables>
@@ -239,7 +238,7 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Assign DisplayName="Set Transaction name" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_44">
+                        <Assign DisplayName="Set Transaction name" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_44">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:String">[transactionName]</OutArgument>
                           </Assign.To>
@@ -247,7 +246,7 @@
                             <InArgument x:TypeArguments="x:String">[Config("TransactionName").ToString]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <Assign sap2010:Annotation.AnnotationText="Add you transaction id according to your use case . It will be the unit of work. &#xA;e.g. Transaction Name is &quot;Download of report&quot; then transaction ID can be the report Name with timestamp" DisplayName="Set Transaction ID" sap:VirtualizedContainerService.HintSize="334,147" sap2010:WorkflowViewState.IdRef="Assign_45">
+                        <Assign sap2010:Annotation.AnnotationText="Add you transaction id according to your use case . It will be the unit of work. &#xA;e.g. Transaction Name is &quot;Download of report&quot; then transaction ID can be the report Name with timestamp" DisplayName="Set Transaction ID" sap:VirtualizedContainerService.HintSize="334,157.333333333333" sap2010:WorkflowViewState.IdRef="Assign_45">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:String">[transactionID]</OutArgument>
                           </Assign.To>
@@ -260,7 +259,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </Assign>
-                        <Assign DisplayName="Set Transaction Start Time" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_46">
+                        <Assign DisplayName="Set Transaction Start Time" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_46">
                           <Assign.To>
                             <OutArgument x:TypeArguments="s:DateTime">[TransactionStartTime]</OutArgument>
                           </Assign.To>
@@ -432,7 +431,7 @@
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">554.5,419</av:Point>
-                  <av:Size x:Key="ShapeSize">231.333333333333,146</av:Size>
+                  <av:Size x:Key="ShapeSize">231.333333333333,148.666666666667</av:Size>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   <x:Double x:Key="StateContainerWidth">197</x:Double>
                   <x:Double x:Key="StateContainerHeight">34</x:Double>
@@ -443,7 +442,7 @@
                 <Transition DisplayName="Rule Exception" sap:VirtualizedContainerService.HintSize="513,1225" sap2010:WorkflowViewState.IdRef="Transition_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:PointCollection x:Key="ConnectorLocation">681.733333333333,565 681.733333333333,589.7 845.833333333333,589.7 845.833333333333,229.7 815.833333333333,229.7</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">681.733333333333,567.666666666667 681.733333333333,589.7 845.833333333333,589.7 845.833333333333,229.7 815.833333333333,229.7</av:PointCollection>
                       <x:Int32 x:Key="SrcConnectionPointIndex">43</x:Int32>
                       <x:Int32 x:Key="DestConnectionPointIndex">20</x:Int32>
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -519,7 +518,7 @@
                 <Transition DisplayName="Application Exception" sap:VirtualizedContainerService.HintSize="808,2143" sap2010:WorkflowViewState.IdRef="Transition_15">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:PointCollection x:Key="ConnectorLocation">647.033333333333,565 647.033333333333,576 524.5,576 524.5,126 697,126 697,54.6 667,54.6</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">647.033333333333,567.666666666667 647.033333333333,597.666666666667 524.5,597.666666666667 524.5,126 697,126 697,54.6 667,54.6</av:PointCollection>
                       <x:Int32 x:Key="SrcConnectionPointIndex">31</x:Int32>
                       <x:Int32 x:Key="DestConnectionPointIndex">40</x:Int32>
                     </scg:Dictionary>
@@ -603,15 +602,9 @@
                                 <If.Then>
                                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitiAllApplications workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\InitAllApplications.xaml">
                                     <ui:InvokeWorkflowFile.Arguments>
-                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                                        <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, ss:SecureString)" x:Key="in_Passwords">
-                                        <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ss:SecureString)" ExpressionText="Passwords" />
-                                      </InArgument>
-                                      <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_Config_Application_dt">
-                                        <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_Application_Config" />
-                                      </InOutArgument>
+                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, ss:SecureString)" x:Key="in_Passwords">[Passwords]</InArgument>
+                                      <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_Config_Application_dt">[dt_Application_Config]</InOutArgument>
                                     </ui:InvokeWorkflowFile.Arguments>
                                   </ui:InvokeWorkflowFile>
                                 </If.Then>
@@ -1049,7 +1042,7 @@
                 <Transition DisplayName="Success" sap:VirtualizedContainerService.HintSize="513,1251" sap2010:WorkflowViewState.IdRef="Transition_16">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:PointCollection x:Key="ConnectorLocation">728,565 728,594.933333333333 845.833333333333,594.933333333333 845.833333333333,264.933333333333 815.833333333333,264.933333333333</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">728,567.666666666667 728,594.933333333333 845.833333333333,594.933333333333 845.833333333333,264.933333333333 815.833333333333,264.933333333333</av:PointCollection>
                       <x:Int32 x:Key="SrcConnectionPointIndex">59</x:Int32>
                       <x:Int32 x:Key="DestConnectionPointIndex">48</x:Int32>
                     </scg:Dictionary>
@@ -1145,13 +1138,13 @@
         <Transition DisplayName="NoData" sap:VirtualizedContainerService.HintSize="450,505" sap2010:WorkflowViewState.IdRef="Transition_14">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:PointCollection x:Key="ConnectorLocation">564.5,264.933333333333 534.5,264.933333333333 534.5,533.833333333333 223.4,533.833333333333 223.4,503.833333333333</av:PointCollection>
+              <av:PointCollection x:Key="ConnectorLocation">564.5,264.933333333333 534.5,264.933333333333 534.5,535.166666666667 223.4,535.166666666667 223.4,505.166666666667</av:PointCollection>
               <x:Int32 x:Key="SrcConnectionPointIndex">49</x:Int32>
               <x:Int32 x:Key="DestConnectionPointIndex">47</x:Int32>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.To>
-            <State x:Name="__ReferenceID4" sap2010:Annotation.AnnotationText="Load Data to Queue" DisplayName="Load" sap:VirtualizedContainerService.HintSize="1030,1711.33333333333" sap2010:WorkflowViewState.IdRef="State_5">
+            <State x:Name="__ReferenceID4" sap2010:Annotation.AnnotationText="Load Data to Queue" DisplayName="Load" sap:VirtualizedContainerService.HintSize="134,106.666666666667" sap2010:WorkflowViewState.IdRef="State_5">
               <State.Entry>
                 <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="983.333333333333,1285.33333333333" sap2010:WorkflowViewState.IdRef="TryCatch_7">
                   <TryCatch.Try>
@@ -1218,15 +1211,9 @@
                                   </Assign>
                                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke LoadTransactionData  workflow" sap:VirtualizedContainerService.HintSize="334,113.333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_30" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\LoadTransactionData.xaml">
                                     <ui:InvokeWorkflowFile.Arguments>
-                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                                        <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, ss:SecureString)" x:Key="in_Passwords">
-                                        <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ss:SecureString)" ExpressionText="Passwords" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="sd:DataTable" x:Key="io_Application_Overview_Dt">
-                                        <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_Application_Config" />
-                                      </InArgument>
+                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, ss:SecureString)" x:Key="in_Passwords">[Passwords]</InArgument>
+                                      <InArgument x:TypeArguments="sd:DataTable" x:Key="io_Application_Overview_Dt">[dt_Application_Config]</InArgument>
                                     </ui:InvokeWorkflowFile.Arguments>
                                   </ui:InvokeWorkflowFile>
                                 </Sequence>
@@ -1304,7 +1291,7 @@
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">143,398.5</av:Point>
-                  <av:Size x:Key="ShapeSize">134,105.333333333333</av:Size>
+                  <av:Size x:Key="ShapeSize">134,106.666666666667</av:Size>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 </scg:Dictionary>
