@@ -1,0 +1,7 @@
+Sub Convert_CSV_to_XLSX_File()
+Dim w As Workbook
+Set w = Workbooks.Open("C:\Users\aws-svc-rpa15d\Downloads\Book1.csv")
+w.SaveAs Filename:="C:\Users\aws-svc-rpa15d\Downloads\Book1.xlsx", _
+FileFormat:=xlWorkbookDefault, _
+ReadOnlyRecommended:=False, CreateBackup:=False
+End Sub

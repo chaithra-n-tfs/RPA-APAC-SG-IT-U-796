@@ -1,0 +1,425 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="PurchaseOrder_Listing_Report" this:PurchaseOrder_Listing_Report.in_ReportName="Purchase Order Listing Report" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_Password" Type="InArgument(scg:Dictionary(x:String, ss:SecureString))" />
+    <x:Property Name="in_ReportName" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>738,700.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>PurchaseOrder_Listing_Report_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="28">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="30">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Flowchart DisplayName="PurchaseOrder_Listing_Report" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="bool_LoginSuccessful" />
+      <Variable x:TypeArguments="x:Boolean" Name="bool_SignOut">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:Boolean" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:Boolean" Name="bool_DataSelection" />
+    </Flowchart.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+        <av:Size x:Key="ShapeSize">60,74.6666666666667</av:Size>
+        <av:PointCollection x:Key="ConnectorLocation">300,77.1666666666667 300,127.166666666667</av:PointCollection>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart.StartNode>
+      <x:Reference>__ReferenceID3</x:Reference>
+    </Flowchart.StartNode>
+    <FlowStep x:Name="__ReferenceID3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">200,127.166666666667</av:Point>
+          <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">300,179.833333333333 300,213.666666666667</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;***Purchase Order Listing Report Flow Started***&quot;]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:LogMessage>
+      <FlowStep.Next>
+        <FlowStep x:Name="__ReferenceID0">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">200,213.666666666667</av:Point>
+              <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">300,266.333333333333 300,296.333333333333 299.975,296.333333333333 299.975,316.333333333333</av:PointCollection>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Login_JDE_Precheck" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Login_JDE_Precheck.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Url">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;796_JDE_Url&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="ss:SecureString" x:Key="in_Password">
+                <mva:VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="in_Password(&quot;796_JDE_Credentials&quot;)" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Username">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;796_JDE_Credentials&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Role">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;796_Role&quot;).ToString" />
+              </InArgument>
+              <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_Login_Exists">
+                <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="bool_LoginSuccessful" />
+              </InOutArgument>
+              <InArgument x:TypeArguments="x:Boolean" x:Key="in_Precheck">
+                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="bool_SignOut" />
+              </InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+          <FlowStep.Next>
+            <FlowDecision x:Name="__ReferenceID1" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="78.6666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+              <FlowDecision.Condition>
+                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="bool_LoginSuccessful.Equals(True)" />
+              </FlowDecision.Condition>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <av:Point x:Key="ShapeLocation">260.641666666667,316.333333333333</av:Point>
+                  <av:Size x:Key="ShapeSize">78.6666666666667,86.6666666666667</av:Size>
+                  <av:PointCollection x:Key="TrueConnector">260.641666666667,359.666666666667 230.641666666667,359.666666666667 230.641666666667,320.706666666667 200,320.706666666667</av:PointCollection>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <FlowDecision.True>
+                <FlowStep x:Name="__ReferenceID2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">0,286.04</av:Point>
+                      <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence DisplayName="Sequence:Extract PurchaseOrder_Listing_Report" sap:VirtualizedContainerService.HintSize="454.666666666667,1581.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="412.666666666667,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="DataSelection.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_ReportName">[in_ReportName]</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                    <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="412.666666666667,367.333333333333" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+                      <ui:InterruptibleDoWhile.Body>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:UiElementExists DisplayName="Element Exists_Data Selection" Exists="[bool_DataSelection]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                            <ui:UiElementExists.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="86df556f-8150-4f46-ab95-3f5273b4e09b" InformativeScreenshot="583e661246b9d1a7042f650a5f6fa976" Selector="&lt;html app='msedge.exe' title='Version Prompting' /&gt;&lt;webctrl aaname='Data Selection ' colName='Data Selection ' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:UiElementExists.Target>
+                          </ui:UiElementExists>
+                        </Sequence>
+                      </ui:InterruptibleDoWhile.Body>
+                      <ui:InterruptibleDoWhile.Condition>
+                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="bool_DataSelection.Equals(False)" />
+                      </ui:InterruptibleDoWhile.Condition>
+                    </ui:InterruptibleDoWhile>
+                    <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" AlterIfDisabled="True" DisplayName="Select Item_Amount" sap:VirtualizedContainerService.HintSize="412.666666666667,134" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="Amount - Open (F4311) (AOPN) [BC]">
+                      <ui:SelectItem.Items>
+                        <scg:List x:TypeArguments="x:String" Capacity="50">
+                          <x:String>2nd Item Number (F4311) (LITM) [BC]</x:String>
+                          <x:String>3rd Item Number (F4311) (AITM) [BC]</x:String>
+                          <x:String>AIA Document Flag (F4311) (FUF1) [BC]</x:String>
+                          <x:String>Account ID (F4311) (AID) [BC]</x:String>
+                          <x:String>Account Number - Input (Mode Unknown) (F4311) (ANI) [BC]</x:String>
+                          <x:String>Address Number (F4311) (AN8) [BC]</x:String>
+                          <x:String>Address Number - Mark-for (F4311) (MKFR) [BC]</x:String>
+                          <x:String>Address Number - Ship To (F4311) (SHAN) [BC]</x:String>
+                          <x:String>Agreement Number - Distribution (F4311) (DMCT) [BC]</x:String>
+                          <x:String>Agreement Supplement - Distribution (F4311) (DMCS) [BC]</x:String>
+                          <x:String>Amount - Extended Cost (F4311) (ECST) [BC]</x:String>
+                          <x:String>Amount - Extended Price (F4311) (AEXP) [BC]</x:String>
+                          <x:String>Amount - Foreign Changed Amount (F4311) (FCHG) [BC]</x:String>
+                          <x:String>Amount - Foreign Extended Cost (F4311) (FEC) [BC]</x:String>
+                          <x:String>Amount - Foreign Extended Price (F4311) (FEA) [BC]</x:String>
+                          <x:String>Amount - Foreign Open (F4311) (FAP) [BC]</x:String>
+                          <x:String>Amount - Foreign Tax (F4311) (CTAM) [BC]</x:String>
+                          <x:String>Amount - Foreign Tax Relieved (F4311) (FTRL) [BC]</x:String>
+                          <x:String>Amount - Foreign Unit Cost (F4311) (FUC) [BC]</x:String>
+                          <x:String>Amount - Foreign Unit Price (F4311) (FRRC) [BC]</x:String>
+                          <x:String>Amount - On Hold (F4311) (ACHG) [BC]</x:String>
+                          <x:String>Amount - Open (F4311) (AOPN) [BC]</x:String>
+                          <x:String>Amount - Received (F4311) (AREC) [BC]</x:String>
+                          <x:String>Amount - Received Foreign (F4311) (FREC) [BC]</x:String>
+                          <x:String>Amount - Relieved (F4311) (ARLV) [BC]</x:String>
+                          <x:String>Amount - Tax Commitment (F4311) (FTN1) [BC]</x:String>
+                          <x:String>Amount - Tax Relieved (F4311) (TRLV) [BC]</x:String>
+                          <x:String>Amount - Unit Cost (F4311) (PRRC) [BC]</x:String>
+                          <x:String>Associated Text (F4311) (ATXT) [BC]</x:String>
+                          <x:String>Business Unit (F4311) (MCU) [BC]</x:String>
+                          <x:String>Buyer Number (F4311) (ANBY) [BC]</x:String>
+                          <x:String>Carrier Number (F4311) (ANCR) [BC]</x:String>
+                          <x:String>Catalog (F4311) (CATN) [BC]</x:String>
+                          <x:String>Category Code - G/L1 (F4311) (R001) [BC]</x:String>
+                          <x:String>Century (F4311) (CTRY) [BC]</x:String>
+                          <x:String>Change Order Date - Updated (F4311) (CHMJ) [BC]</x:String>
+                          <x:String>Change Order Line Number (F4311) (CHLN) [BC]</x:String>
+                          <x:String>Change Order Number (F4311) (CORD) [BC]</x:String>
+                          <x:String>Change Order Time of Day (F4311) (CHT) [BC]</x:String>
+                          <x:String>Change Order Type (F4311) (CHDT) [BC]</x:String>
+                          <x:String>Closed Item - As Of Processing (F4311) (FNLP) [BC]</x:String>
+                          <x:String>Code - Approval Routing (F4311) (ARTG) [BC]</x:String>
+                          <x:String>Code - Evaluated Receipt Settlement (F4311) (AVCH) [BC]</x:String>
+                          <x:String>Code - Location Tax Status (F4311) (LCOD) [BC]</x:String>
+                          <x:String>Commodity Code (F4311) (CDCD) [BC]</x:String>
+                          <x:String>Commodity Code (F4311) (CMDCDE) [BC]</x:String>
+                          <x:String>Company (F4311) (CO) [BC]</x:String>
+                          <x:String>Company - Key (Related Order) (F4311) (RKCO) [BC]</x:String>
+                          <x:String>Component Line Number (F4311) (CPNT) [BC]</x:String>
+                          <x:String>Conditions of Transport (F4311) (COT) [BC]</x:String>
+                        </scg:List>
+                      </ui:SelectItem.Items>
+                      <ui:SelectItem.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6e31c934-c0f9-4959-83b2-b849070e3aa1" InformativeScreenshot="885410495c26cb3338e12e3f0bd0d6ca" Selector="&lt;html app='msedge.exe' title='Version Prompting' /&gt;&lt;webctrl tag='SELECT' tableCol='3' tableRow='4' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:SelectItem.Target>
+                    </ui:SelectItem>
+                    <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'SELECT  Comparison3'" sap:VirtualizedContainerService.HintSize="412.666666666667,134" sap2010:WorkflowViewState.IdRef="SelectItem_2" Item="is greater than">
+                      <ui:SelectItem.Items>
+                        <scg:List x:TypeArguments="x:String" Capacity="8">
+                          <x:String>is equal to</x:String>
+                          <x:String>is not equal to</x:String>
+                          <x:String>is less than</x:String>
+                          <x:String>is less than or equal to</x:String>
+                          <x:String>is greater than</x:String>
+                          <x:String>is greater than or equal to</x:String>
+                        </scg:List>
+                      </ui:SelectItem.Items>
+                      <ui:SelectItem.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3995a28f-35a1-47c1-96ab-84f51a197235" InformativeScreenshot="87f24df4c8bfd5ec4bbcc07f918fb4c7" Selector="&lt;html app='msedge.exe' title='Version Prompting' /&gt;&lt;webctrl tag='SELECT' tableCol='4' tableRow='4' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:SelectItem.Target>
+                    </ui:SelectItem>
+                    <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item  Greater than 0" sap:VirtualizedContainerService.HintSize="412.666666666667,134" sap2010:WorkflowViewState.IdRef="SelectItem_3" Item="Zero">
+                      <ui:SelectItem.Items>
+                        <scg:List x:TypeArguments="x:String" Capacity="50">
+                          <x:String>Blank</x:String>
+                          <x:String>Zero</x:String>
+                          <x:String>Null</x:String>
+                          <x:String>Literal</x:String>
+                          <x:String>Address Number (F4311) (AN8) [BC]</x:String>
+                          <x:String>Address Number - Mark-for (F4311) (MKFR) [BC]</x:String>
+                          <x:String>Address Number - Ship To (F4311) (SHAN) [BC]</x:String>
+                          <x:String>Agreement Supplement - Distribution (F4311) (DMCS) [BC]</x:String>
+                          <x:String>Amount - Extended Cost (F4311) (ECST) [BC]</x:String>
+                          <x:String>Amount - Extended Price (F4311) (AEXP) [BC]</x:String>
+                          <x:String>Amount - Foreign Changed Amount (F4311) (FCHG) [BC]</x:String>
+                          <x:String>Amount - Foreign Extended Cost (F4311) (FEC) [BC]</x:String>
+                          <x:String>Amount - Foreign Extended Price (F4311) (FEA) [BC]</x:String>
+                          <x:String>Amount - Foreign Open (F4311) (FAP) [BC]</x:String>
+                          <x:String>Amount - Foreign Tax (F4311) (CTAM) [BC]</x:String>
+                          <x:String>Amount - Foreign Tax Relieved (F4311) (FTRL) [BC]</x:String>
+                          <x:String>Amount - Foreign Unit Cost (F4311) (FUC) [BC]</x:String>
+                          <x:String>Amount - Foreign Unit Price (F4311) (FRRC) [BC]</x:String>
+                          <x:String>Amount - On Hold (F4311) (ACHG) [BC]</x:String>
+                          <x:String>Amount - Open (F4311) (AOPN) [BC]</x:String>
+                          <x:String>Amount - Received (F4311) (AREC) [BC]</x:String>
+                          <x:String>Amount - Received Foreign (F4311) (FREC) [BC]</x:String>
+                          <x:String>Amount - Relieved (F4311) (ARLV) [BC]</x:String>
+                          <x:String>Amount - Tax Commitment (F4311) (FTN1) [BC]</x:String>
+                          <x:String>Amount - Tax Relieved (F4311) (TRLV) [BC]</x:String>
+                          <x:String>Amount - Unit Cost (F4311) (PRRC) [BC]</x:String>
+                          <x:String>Buyer Number (F4311) (ANBY) [BC]</x:String>
+                          <x:String>Carrier Number (F4311) (ANCR) [BC]</x:String>
+                          <x:String>Century (F4311) (CTRY) [BC]</x:String>
+                          <x:String>Change Order Line Number (F4311) (CHLN) [BC]</x:String>
+                          <x:String>Change Order Number (F4311) (CORD) [BC]</x:String>
+                          <x:String>Change Order Time of Day (F4311) (CHT) [BC]</x:String>
+                          <x:String>Component Line Number (F4311) (CPNT) [BC]</x:String>
+                          <x:String>Contract Detail ID (F4311) (CNTRTDID) [BC]</x:String>
+                          <x:String>Contract ID (F4311) (CNTRTID) [BC]</x:String>
+                          <x:String>Cost Component Number (F4311) (CCMP) [BC]</x:String>
+                          <x:String>Currency Conversion Rate - Spot Rate (F4311) (CRR) [BC]</x:String>
+                          <x:String>Discount Factor (F4311) (DSPR) [BC]</x:String>
+                          <x:String>Document (Change Order #) (F4311) (DOCC) [BC]</x:String>
+                          <x:String>Document (Order No, Invoice, etc.) (F4311) (DOCO) [BC]</x:String>
+                          <x:String>Fiscal Year (F4311) (FY) [BC]</x:String>
+                          <x:String>From Potency (F4311) (FRMP) [BC]</x:String>
+                          <x:String>Gross Weight (F4311) (GRWT) [BC]</x:String>
+                          <x:String>Item Number - Short (F4311) (ITM) [BC]</x:String>
+                          <x:String>Kit Master Line Number (F4311) (KTLN) [BC]</x:String>
+                          <x:String>Line Number (F4311) (LNID) [BC]</x:String>
+                          <x:String>Load Number (F4311) (LDNM) [BC]</x:String>
+                          <x:String>Matrix Control Line Number (F4311) (MCLN) [BC]</x:String>
+                          <x:String>Original Line Number (F4311) (OGNO) [BC]</x:String>
+                          <x:String>Period Number - General Ledger (F4311) (PN) [BC]</x:String>
+                        </scg:List>
+                      </ui:SelectItem.Items>
+                      <ui:SelectItem.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1b10ab60-eedb-4dc3-be2d-b3636c0e7932" InformativeScreenshot="d259205abe30b26621ca0d4457e63f8c" Selector="&lt;html app='msedge.exe' title='Version Prompting' /&gt;&lt;webctrl tag='SELECT' tableCol='5' tableRow='4' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:SelectItem.Target>
+                    </ui:SelectItem>
+                    <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click okay" sap:VirtualizedContainerService.HintSize="412.666666666667,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                      <ui:Click.CursorPosition>
+                        <ui:CursorPosition Position="Center">
+                          <ui:CursorPosition.OffsetX>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetX>
+                          <ui:CursorPosition.OffsetY>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetY>
+                        </ui:CursorPosition>
+                      </ui:Click.CursorPosition>
+                      <ui:Click.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="40a8f996-8d1f-4e95-919e-bd22930f2b4f" InformativeScreenshot="5cdc960bb4ec76ea6784af1118b709f0" Selector="&lt;html app='msedge.exe' title='Version Prompting' /&gt;&lt;webctrl aaname='OK (Ctrl+Alt+O)' colName='  OK' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:Click.Target>
+                    </ui:Click>
+                    <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click okay Printer Selection" sap:VirtualizedContainerService.HintSize="412.666666666667,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+                      <ui:Click.CursorPosition>
+                        <ui:CursorPosition Position="Center">
+                          <ui:CursorPosition.OffsetX>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetX>
+                          <ui:CursorPosition.OffsetY>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetY>
+                        </ui:CursorPosition>
+                      </ui:Click.CursorPosition>
+                      <ui:Click.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b1c4b788-7cab-4f92-a41a-e29ff755b82d" InformativeScreenshot="f2a7cc483e0b32ee94252d4facc17fde" Selector="&lt;html app='msedge.exe' title='Printer Selection' /&gt;&lt;webctrl aria-role='button' aaname='OK (Ctrl+Alt+O)' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:Click.Target>
+                    </ui:Click>
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="412.666666666667,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Download_Report_JDE.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_Input_FileName">
+                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ReportName" />
+                        </InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                  </Sequence>
+                </FlowStep>
+              </FlowDecision.True>
+            </FlowDecision>
+          </FlowStep.Next>
+        </FlowStep>
+      </FlowStep.Next>
+    </FlowStep>
+    <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID1</x:Reference>
+    <x:Reference>__ReferenceID2</x:Reference>
+  </Flowchart>
+</Activity>
