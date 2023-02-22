@@ -1,0 +1,3 @@
+Sub Workbook_RefreshAll(filepath As String)
+	Workbooks(filepath).RefreshAll
+End Sub
