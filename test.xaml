@@ -5,10 +5,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1153.33333333333,8517.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1153.33333333333,9498.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>test_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="41">
+    <scg:List x:TypeArguments="x:String" Capacity="84">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -50,6 +50,10 @@
       <x:String>RPA_ITCOE_REUSABLE_COMPONENT_FISCAL_CALENDAR</x:String>
       <x:String>System.Globalization</x:String>
       <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Core.Activities.Storage</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -94,7 +98,7 @@
       <AssemblyReference>RPA-ITCOE-REUSABLE-COMPONENT-FISCAL-CALENDAR</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="test" sap:VirtualizedContainerService.HintSize="810,8452.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="test" sap:VirtualizedContainerService.HintSize="810,9354" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_AttributeName" />
       <Variable x:TypeArguments="x:String" Name="str_parentclass" />
@@ -109,6 +113,8 @@
       <Variable x:TypeArguments="x:Int32" Name="outputdate" />
       <Variable x:TypeArguments="s:DateTime" Name="periodEndDate" />
       <Variable x:TypeArguments="s:DateTime" Name="periodStartDate" />
+      <Variable x:TypeArguments="x:Boolean" Name="bool_Loading_Exists" />
+      <Variable x:TypeArguments="x:Boolean" Name="test" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -116,6 +122,206 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Sequence:Switch" sap:VirtualizedContainerService.HintSize="768,545.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_19">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="res_input" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" Title="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="496.666666666667,244.666666666667" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="enter the value">
+        <ui:InputDialog.Result>
+          <OutArgument x:TypeArguments="x:String">[res_input]</OutArgument>
+        </ui:InputDialog.Result>
+      </ui:InputDialog>
+      <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[res_input]" sap:VirtualizedContainerService.HintSize="496.666666666667,168.666666666667" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+        <Switch.Default>
+          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,85.3333333333333" sap2010:WorkflowViewState.IdRef="MessageBox_7" Text="[&quot;default messgae &quot;]" />
+        </Switch.Default>
+        <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" x:Key="2" AutoCloseAfter="00:00:00" sap:VirtualizedContainerService.HintSize="334,85.3333333333333" sap2010:WorkflowViewState.IdRef="MessageBox_5" Text="[2]" />
+        <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" x:Key="&quot;3" AutoCloseAfter="00:00:00" sap:VirtualizedContainerService.HintSize="334,85.3333333333333" sap2010:WorkflowViewState.IdRef="MessageBox_6" Text="[&quot;3&quot;]" />
+      </Switch>
+    </Sequence>
+    <Sequence DisplayName="Open WokrOrder SubPrep" sap:VirtualizedContainerService.HintSize="768,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_18">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" AlterIfDisabled="True" ClickBeforeTyping="True" DisplayName="Type Into 'INPUT  C0_162'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" SimulateType="True" Text="6200">
+        <ui:TypeInto.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="caefa951-65b0-4034-a106-2ba909dff802" InformativeScreenshot="94c31f9f6cca2fed8f4173e4cad789a6" Selector="&lt;html app='msedge.exe' title='Work Order Entry-Type WO*' /&gt;&lt;webctrl tableCol='1' tableRow='1' tag='INPUT' type='text' aaname='Branch/Plant' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:TypeInto.Target>
+      </ui:TypeInto>
+      <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'INPUT'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_5" SimulateType="True" Text="&gt;45">
+        <ui:TypeInto.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="59478929-3c19-4859-bcd1-3652768ce685" InformativeScreenshot="b444950e0e982624e820378ea5a4d8fe" Selector="&lt;html app='msedge.exe' title='Work Order Entry-Type WO*' /&gt;&lt;webctrl tag='INPUT' aaname='Status' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:TypeInto.Target>
+      </ui:TypeInto>
+      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click on Search" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_29" KeyModifiers="None" MouseButton="BTN_LEFT">
+        <ui:Click.CursorPosition>
+          <ui:CursorPosition Position="Center">
+            <ui:CursorPosition.OffsetX>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetX>
+            <ui:CursorPosition.OffsetY>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetY>
+          </ui:CursorPosition>
+        </ui:Click.CursorPosition>
+        <ui:Click.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="18d39561-8fdb-4424-8de5-ed696fb20442" InformativeScreenshot="8ea33eab74b30b6c4dbb69b017c8ad73" Selector="&lt;html app='msedge.exe' title='*Work With Manufacturing Work Orders' /&gt;&lt;webctrl aaname='Find (Ctrl+Alt+I)' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:Click.Target>
+      </ui:Click>
+    </Sequence>
+    <Sequence sap:VirtualizedContainerService.HintSize="768,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_16">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" AlterIfDisabled="True" ClickBeforeTyping="True" DisplayName="Type Into 'INPUT  C0_162'" EmptyField="True" sap:VirtualizedContainerService.HintSize="412.666666666667,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="6200">
+        <ui:TypeInto.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="caefa951-65b0-4034-a106-2ba909dff802" InformativeScreenshot="94c31f9f6cca2fed8f4173e4cad789a6" Selector="&lt;html app='msedge.exe' title='Work Order Entry-Type WO*' /&gt;&lt;webctrl tableCol='1' tableRow='1' tag='INPUT' type='text' aaname='Branch/Plant' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:TypeInto.Target>
+      </ui:TypeInto>
+      <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into Start Date" EmptyField="True" sap:VirtualizedContainerService.HintSize="412.666666666667,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="True" Text="[&quot;&gt;&quot;+now.AddMonths(-3).ToString(&quot;MM/dd/yyyy&quot;)]">
+        <ui:TypeInto.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a5462eea-20bc-4d07-8001-83be4f422333" InformativeScreenshot="c4bc3b1fb8cd52a7545cee4ff5a7f834" Selector="&lt;html app='msedge.exe' title='*Work With Manufacturing Work Orders' /&gt;&lt;webctrl tag='INPUT' aaname='Start Date' type='text' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:TypeInto.Target>
+      </ui:TypeInto>
+      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click on Search" sap:VirtualizedContainerService.HintSize="412.666666666667,106" sap2010:WorkflowViewState.IdRef="Click_27" KeyModifiers="None" MouseButton="BTN_LEFT">
+        <ui:Click.CursorPosition>
+          <ui:CursorPosition Position="Center">
+            <ui:CursorPosition.OffsetX>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetX>
+            <ui:CursorPosition.OffsetY>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetY>
+          </ui:CursorPosition>
+        </ui:Click.CursorPosition>
+        <ui:Click.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="18d39561-8fdb-4424-8de5-ed696fb20442" InformativeScreenshot="8ea33eab74b30b6c4dbb69b017c8ad73" Selector="&lt;html app='msedge.exe' title='*Work With Manufacturing Work Orders' /&gt;&lt;webctrl aaname='Find (Ctrl+Alt+I)' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:Click.Target>
+      </ui:Click>
+      <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="relativeVisibility" DisplayName="Get Attribute 'TD'" sap:VirtualizedContainerService.HintSize="412.666666666667,204.666666666667" sap2010:WorkflowViewState.IdRef="GetAttribute_3">
+        <ui:GetAttribute.Result>
+          <OutArgument x:TypeArguments="x:Boolean">[test]</OutArgument>
+        </ui:GetAttribute.Result>
+        <ui:GetAttribute.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="66d49144-5f0a-4341-a8bf-82b7987d6295" InformativeScreenshot="4b662be12f9a18d961cd06544355ea47" Selector="&lt;html app='msedge.exe' title='Work Order Entry-Type WO*' /&gt;&lt;webctrl parentid='procIndicatorFloatLyr' tag='TABLE' /&gt;&lt;webctrl tableCol='1' tableRow='1' tag='TD' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:GetAttribute.Target>
+      </ui:GetAttribute>
+      <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[bool_Loading_Exists.Equals(True)]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="412.666666666667,674" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+        <ui:InterruptibleDoWhile.Body>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,504.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_17">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="relativeVisibility" DisplayName="Get Attribute 'TD'" sap:VirtualizedContainerService.HintSize="334,204.666666666667" sap2010:WorkflowViewState.IdRef="GetAttribute_4">
+              <ui:GetAttribute.Result>
+                <OutArgument x:TypeArguments="x:Boolean">[bool_Loading_Exists]</OutArgument>
+              </ui:GetAttribute.Result>
+              <ui:GetAttribute.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="66d49144-5f0a-4341-a8bf-82b7987d6295" InformativeScreenshot="4b662be12f9a18d961cd06544355ea47" Selector="&lt;html app='msedge.exe' title='Work Order Entry-Type WO*' /&gt;&lt;webctrl parentid='procIndicatorFloatLyr' tag='TABLE' /&gt;&lt;webctrl tableCol='1' tableRow='1' tag='TD' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:GetAttribute.Target>
+            </ui:GetAttribute>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT  C0_162'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_28" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fe48323f-d6b9-4efa-aea2-052494636f60" InformativeScreenshot="fa37bcb83ccd0d26e6ba6f48769c853f" Selector="&lt;html app='msedge.exe' title='Work Order Entry-Type WO*' /&gt;&lt;webctrl tableCol='1' tableRow='1' tag='INPUT' type='text' aaname='Branch/Plant' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+          </Sequence>
+        </ui:InterruptibleDoWhile.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:InterruptibleDoWhile>
+    </Sequence>
     <r:FISCAL_DATE_CALCULATION DisplayName="FISCAL-DATE-CALCULATION" FirstWeekNumber="[outputdate]" FiscalMonthName="[monthname]" FiscalMonthNumber="[month]" FiscalQuarterNumber="[quarter]" FiscalWeekNumber="[firstweeknumber]" sap:VirtualizedContainerService.HintSize="768,22" sap2010:WorkflowViewState.IdRef="FISCAL_DATE_CALCULATION_1" InputDate="2022-11-15" />
     <r:FISCAL_PERIOD_CALCULATION DisplayName="FISCAL-PERIOD-CALCULATION" sap:VirtualizedContainerService.HintSize="768,22" sap2010:WorkflowViewState.IdRef="FISCAL_PERIOD_CALCULATION_1" PeriodEndDate="[periodEndDate]" PeriodStartDate="[periodStartDate]" PeriodValue="Q4" PeriodYear="2022" />
     <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="768,52.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="C:\Users\aws-svc-rpa15d\Downloads\Book1.csv">
@@ -722,7 +928,7 @@
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
     </Sequence>
-    <Sequence DisplayName="Sequence:Apply Filter" sap:VirtualizedContainerService.HintSize="768,2549.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence DisplayName="Sequence:Apply Filter" sap:VirtualizedContainerService.HintSize="768,2646.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <Sequence.Variables>
         <Variable x:TypeArguments="ui:UiElement" Name="test_ele" />
         <Variable x:TypeArguments="x:String" Name="res_getattribute" />
@@ -1022,7 +1228,7 @@
           </ui:WaitUiElementAppear>
         </ui:AnchorBase.AnchorProvider>
       </ui:AnchorBase>
-      <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innertext" DisplayName="Get Attribute 'DIV'" sap:VirtualizedContainerService.HintSize="726,134" sap2010:WorkflowViewState.IdRef="GetAttribute_2">
+      <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innertext" DisplayName="Get Attribute 'DIV'" sap:VirtualizedContainerService.HintSize="726,204.666666666667" sap2010:WorkflowViewState.IdRef="GetAttribute_2">
         <ui:GetAttribute.Result>
           <OutArgument x:TypeArguments="x:String">[res_getattribute]</OutArgument>
         </ui:GetAttribute.Result>
@@ -1037,7 +1243,7 @@
           </ui:Target>
         </ui:GetAttribute.Target>
       </ui:GetAttribute>
-      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="726,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[res_getattribute]" />
+      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="726,85.3333333333333" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[res_getattribute]" />
     </Sequence>
   </Sequence>
 </Activity>
