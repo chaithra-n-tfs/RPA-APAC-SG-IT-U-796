@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1153.33333333333,1008.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1153.33333333333,968.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DateTimeToSpecificTimezone_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -112,9 +112,9 @@
         <OutArgument x:TypeArguments="x:String">[out_CurrentTime]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[datetime_CurrentTime.ToString("hh tt")]</InArgument>
+        <InArgument x:TypeArguments="x:String">[datetime_CurrentTime.ToString("HH")]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Current time in &quot; + in_Timezone + &quot; is: &quot; + datetime_CurrentTime.ToString(&quot;hh tt&quot;)]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Current time in &quot; + in_Timezone + &quot; is: &quot; + datetime_CurrentTime.ToString(&quot;HH&quot;)]" />
   </Sequence>
 </Activity>
